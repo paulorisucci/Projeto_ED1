@@ -284,3 +284,8 @@ while(evento):
     print('Tamanho da fila: ',c1.mostrar_tam_surfistasF())
     print('Tamanho da lista: ',c1.mostrar_tam_surfistasL())
     print('Número total de surfistas no campeonato: ',c1.mostrar_tam_total())
+
+  else:
+    print('Opção inválida. Tente novamente.')
+
+print('Fim do programa.')
