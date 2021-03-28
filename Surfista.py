@@ -41,6 +41,7 @@ class Surfista:
   def prox(self, novo):
     self._prox = novo
 
+
   def incrementa_titulo(self):
     self._titulos +=1
 

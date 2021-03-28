@@ -15,6 +15,7 @@ class Campeonato:
     self._surfistasF = Fila()
     self._surfistasL = Lista()
 
+
   @property
   def nome(self):
    return self._nome_do_campeonato
@@ -43,19 +44,24 @@ class Campeonato:
   def surfistasF(self, novo):
     self._surfistasF = novo
 
+
   def menor_idade(self):
+
     if(self._surfistasL.Tamanho() == 0):
       raise CampeonatoException('Não há surfistas na lista do campeonato.')
 
     aux = self._surfistasL.Inicio
     nome = aux.nome
     menor = aux.idade
+
     while(aux != None):
       if aux.idade < menor:
         menor = aux.idade
         nome = aux.nome
       aux = aux.prox
+
     return nome
+
 
   def maior_idade(self):
     
@@ -74,45 +80,63 @@ class Campeonato:
 
     return nome
 
+
   def incrementa_titulo_surfista(self, cpf):
+
     if(self._surfistasL.Tamanho() == 0):
       raise CampeonatoException('Não há surfistas na lista do campeonato.')
+
     surfista = self._surfistasL.Buscar(cpf)
     surfista.incrementa_titulo()
 
+
   def adicionar_surfistas_P(self, novo_surfista):
     self._surfistasP.Adicionar(novo_surfista)
+
   def remover_surfista_P(self):
     self._surfistasP.Remover()
-  def mostrar_tam_surfistasP(self): 
+
+  def mostrar_tam_surfistasP(self):
     return self._surfistasP.Tamanho()
+
   def busca_surfista_P(self):
     return self.surfistasP.MostrarElemento()
 
+
   def adicionar_surfistas_F(self, novo_surfista):
     self._surfistasF.Adicionar(novo_surfista)
+
   def remover_surfista_F(self):
     self._surfistasF.Remover()
-  def mostrar_tam_surfistasF(self): 
+
+  def mostrar_tam_surfistasF(self):
     return self.surfistasF.Tamanho()
+
   def busca_surfista_F(self):
     return self.surfistasF.MostrarElemento()
 
+
   def adicionar_surfistas_L(self, novo_surfista, posicao=-1):
     self._surfistasL.Adicionar(novo_surfista, posicao)
+
   def remover_surfista_L(self, posicao):
     self._surfistasL.Remover(posicao)
-  def mostrar_tam_surfistasL(self): 
+
+  def mostrar_tam_surfistasL(self):
     return self._surfistasL.Tamanho()
+
 
   def mostrar_tam_total(self):
     return self.mostrar_tam_surfistasL() + self.mostrar_tam_surfistasF() + self.mostrar_tam_surfistasP()
 
+
   def busca_surfista(self, cpf):
     return self._surfistasL.Buscar(cpf)
 
+
   def ordena_surfistas(self):
     self._surfistasL.Ordenar()
+
 
   def imprimir_surfistas(self): #imprimir_surfistas() - imprime na tela os surfistas em surfistasL: “nome –titulos”;
     return self._surfistasL.Imprimir()

@@ -14,6 +14,7 @@ class Fila:
         assert self._inicio != None, 'Lista está vazia.'
         return self._inicio
 
+
     def MostrarElemento(self):
         return f'Surfista: {self.Inicio}'
 
@@ -25,20 +26,25 @@ class Fila:
 
     def Adicionar(self, novo_elemento):
         aux = self._inicio
+
         if(aux != None):
             while(aux.prox != None):
                 aux = aux.prox
             aux.prox = novo_elemento
+
         else:
             self._inicio = novo_elemento
         self._tamanho += 1
 
+
     def Remover(self):
-        if self.Vazia(): #Verificar se está vazia 
+
+        if self.Vazia(): #Verificar se está vazia
             raise FilaException('Lista vazia')
 
         self._inicio = self._inicio.prox
         self._tamanho -= 1
+
 
     def __str__(self):
         string = ''
@@ -48,6 +54,7 @@ class Fila:
             aux = aux.prox
 
         return string
+
 
     def Imprimir(self):
         print(self.__str__())

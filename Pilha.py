@@ -20,11 +20,13 @@ class Pilha:
     def Tamanho(self):
         return self._tamanho
 
+
     def Adicionar(self, novo_d):
         no = novo_d
         no.prox = self._topo
         self._topo = no
         self._tamanho += 1
+
 
     def Remover(self):
         if self.Vazio(): #Verificar se está vazia 
@@ -33,9 +35,11 @@ class Pilha:
         self._topo = self._topo.prox
         self._tamanho -= 1
 
+
     def MostrarElemento(self):
         assert self._tamanho > 0, 'A pilha está vazia'
         return f'Surfista: {self.Topo}'
+
 
     def __str__(self):
         assert self._tamanho > 0, 'A pilha está vazia'
@@ -47,6 +51,7 @@ class Pilha:
             aux = aux.prox
 
         return string
+
 
     def Imprimir(self):
         print(self.__str__())

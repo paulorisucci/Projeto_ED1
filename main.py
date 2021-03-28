@@ -10,16 +10,27 @@ s2 = Surfista('Thiago Perfeito', 10, 40, '3')
 s3 = Surfista('Pedro Maravilhoso', 3, 19,'2')
 s4 = Surfista('Goku', 9, 50, '4')
 s5 = Surfista('Vegeta', 9, 55, '5')
-s6 = Surfista('Bills', 13, 10000, '6')
+s6 = Surfista('Majin Boo', 13, 10000, '6')
+s7 = Surfista('Naruto', 1, 30, '7')
+s8 = Surfista('Sasuke', 1, 30, '8')
+s9 = Surfista('Eren', 3, 20, '9')
+s10 = Surfista('Armin', 3, 19, '10')
 
 c1 = Campeonato('THE GREAT CHAMPIONSHIP OF SURF 2.0')
 
 c1.adicionar_surfistas_L(s1)
 c1.adicionar_surfistas_L(s2)
 c1.adicionar_surfistas_L(s3)
-c1.adicionar_surfistas_F(s4)
-c1.adicionar_surfistas_F(s5)
-c1.adicionar_surfistas_P(s6)
+c1.adicionar_surfistas_L(s4)
+c1.adicionar_surfistas_L(s5)
+c1.adicionar_surfistas_L(s6)
+
+c1.adicionar_surfistas_F(s7)
+c1.adicionar_surfistas_F(s8)
+
+c1.adicionar_surfistas_P(s9)
+c1.adicionar_surfistas_P(s10)
+
 evento = True
 
 while(evento):
@@ -54,13 +65,12 @@ while(evento):
 4 - Ver o surfista no topo da pilha''')
       
       menu_pilha = input()
-    
-      if(menu_pilha == '0'):
-        break
-    
-      elif(menu_pilha == '1'):
+
+
+      if(menu_pilha == '1'):
         print(f'Quantidade de surfistas na pilha:',c1.mostrar_tam_surfistasP())
-    
+
+
       elif(menu_pilha == '2'):
         
         try:
@@ -114,19 +124,24 @@ while(evento):
 4 - Mostrar surfista no início da FILA;''')
       menu_fila = input()
 
+
       if(menu_fila == '1'):
         print(f'Quantidade de surfista na fila:', c1.mostrar_tam_surfistasF())
+
 
       elif(menu_fila == '2'):
         
         try:
           print(f'===Registro de surfista===')
+
           nome = input('Digite o nome do surfista:')
           idade = int(input('Digite a idade: '))
           cpf = input('Digite o CPF: ')
           titulos = int(input('Quantidade de títulos: '))
+
           surfista = Surfista(nome, titulos, idade, cpf)
           c1.adicionar_surfistas_F(surfista)
+
           print('Surfista adicionado com sucesso!')
 
         except ValueError:
@@ -145,8 +160,9 @@ while(evento):
         except FilaException as FE:
           print(FE)
 
+
       elif(menu_fila == '4'):
-        
+
         try:
           print(c1.busca_surfista_F())
 
@@ -158,6 +174,7 @@ while(evento):
 
 
   elif(menu == '3'):
+
 
     while(menu_lista != '0'):
       print('\n===MANIPULAÇÃO DA LISTA DE SURFISTAS===') 
@@ -173,10 +190,12 @@ while(evento):
 8 - Incrementa título''')
       menu_lista = input()
 
-      if(menu_lista == '1'):
+
+      if(menu_lista == '1'): #mostrar tamanho
         print('Quantidade de surfistas na lista:',c1.mostrar_tam_surfistasL())
 
-      elif(menu_lista == '2'):
+
+      elif(menu_lista == '2'): #adicionar
         
         try:
           print(f'\n===Registro de surfista===')
@@ -199,8 +218,9 @@ while(evento):
         except:
           print('Algo deu errado. Tente novamente;')
 
-      elif(menu_lista == '3'):
-        
+
+      elif(menu_lista == '3'): #remover
+
         try:
           print('Remover Surfista')
           posicao = int(input('Digite a posição que deseja remover: '))
@@ -216,7 +236,9 @@ while(evento):
         except:
           print('Algo deu errado. Tente novamente')
 
+
       elif(menu_lista == '4'): #busca
+
         try:
           cpf = input('Digite o CPF do surfista:')
           sx = c1.busca_surfista(cpf)
@@ -228,12 +250,15 @@ while(evento):
         except:
           print('Algo deu errado, tente novamente.')
 
+
       elif(menu_lista == '5'): #imprimir LISTA
-        if(c1.mostrar_tam_surfistasL() > 0): 
+
+        if(c1.mostrar_tam_surfistasL() > 0):
           c1.imprimir_surfistas()
         
         else:
           print('Não há nenhum surfista na lista.\n')
+
 
       elif(menu_lista == '6'): #maior e menor
       
@@ -245,7 +270,7 @@ while(evento):
           print(CE)
 
 
-      elif(menu_lista == '7'):
+      elif(menu_lista == '7'): #Ordenar lista
 
         try: 
           print(f'Lista de surfistas:')
@@ -279,6 +304,7 @@ while(evento):
 
 
   elif(menu == '4'):
+
     print('Os surfistas estão armazenados em Listas, Pilhas e Filas.')
     print('Tamanho da pilha: ',c1.mostrar_tam_surfistasP())
     print('Tamanho da fila: ',c1.mostrar_tam_surfistasF())
@@ -286,6 +312,8 @@ while(evento):
     print('Número total de surfistas no campeonato: ',c1.mostrar_tam_total())
 
   else:
+
     print('Opção inválida. Tente novamente.')
+
 
 print('Fim do programa.')
